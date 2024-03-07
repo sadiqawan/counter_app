@@ -11,35 +11,37 @@ class CounterScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Provider'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Consumer<CounterProvider>(
-            builder: (BuildContext context, CounterProvider value,
-                Widget? child) {
-              return Text(value.count.toString());
-            },
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              context.read<CounterProvider>().increment();
-            },
-            child: const Text('Increment'),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              context.read<CounterProvider>().decrement();
-            },
-            child: const Text('Decrement'), // Changed from 'Increment' to 'Decrement'
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Consumer<CounterProvider>(
+              builder: (BuildContext context, CounterProvider value,
+                  Widget? child) {
+                return Text(value.count.toString());
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.read<CounterProvider>().increment();
+              },
+              child: const Text('Increment'),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.read<CounterProvider>().decrement();
+              },
+              child: const Text('Decrement'), // Changed from 'Increment' to 'Decrement'
+            ),
+          ],
+        ),
       ),
     );
   }
