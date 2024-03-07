@@ -1,6 +1,5 @@
 import 'package:counter_app/provider/counter_provider.dart';
 import 'package:counter_app/provider/slider_provider.dart';
-import 'package:counter_app/screens/counter_screen.dart';
 import 'package:counter_app/screens/slider_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key, Key});
 
   @override
   Widget build(BuildContext context) {
