@@ -1,5 +1,7 @@
 import 'package:counter_app/provider/counter_provider.dart';
+import 'package:counter_app/provider/slider_provider.dart';
 import 'package:counter_app/screens/counter_screen.dart';
+import 'package:counter_app/screens/slider_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,15 +14,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListenableProvider<CounterProvider>(
-      create: (BuildContext context) => CounterProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CounterProvider()),
+        ChangeNotifierProvider(create: (context) => SliderProvider()),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const CounterScreen(),
+        home: const SliderScreen(),
       ),
     );
   }
